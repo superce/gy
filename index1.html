@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="wap-font-scale" content="no">
+    <meta name="format-detection" content="telephone=no"/>
+
+	<title>重力感应</title>
+	<style>
+	html,body,ul,li,a,div{margin:0;padding:0;}
+	html{font-size:20px;}
+	html, body {
+	        height: 100%;
+	        overflow:hidden;
+	    }
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 18rem;
+    left: 0;
+    top: 0;
+}
+	.scene{
+		    position: relative;
+		    display:block;
+		    width:100%;
+		    height:100%;
+    overflow: hidden;
+	}
+	.scene .layer{
+		display: block;
+    height: 100%;
+    width: 100%;
+	}
+	.bg{
+	position:absolute;
+	width:300%;
+	height:100%;
+	 background: url(images/tp1.jpg) no-repeat;
+       background-size: 100% 100%;
+    left: -100%;
+    top: 0;
+
+}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<ul id="scene" class="scene">
+			<li class="layer" data-depth="0.00">
+		  </li>
+		  <li class="layer" data-depth="1">
+		  	<div class="bg"></div>
+		  </li>
+		</ul>
+	</div>
+<script src="js/parallax.min.js"></script>
+<script>
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene, {
+  calibrateX: true,//校准
+  calibrateY: false,
+  invertX: false,//反转
+  invertY: false,
+  limitX: 250,//限制
+  limitY: 10,
+  scalarX: 20,//等级
+  scalarY: 0,
+  frictionX: 0.2,//摩擦力
+  frictionY: 0,
+  originX: 0.0,//原点
+  originY: 0
+});
+</script>
+</body>
+</html>
